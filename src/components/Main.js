@@ -14,7 +14,7 @@ outline: none;
       border-radius:10px;
       margin-top:10px;
       width: 100%;
-      height:3em;
+      height:35px;
       text-align: left;
       color:black; `;
       
@@ -33,6 +33,12 @@ outline: none;
       display:flex;
       flex-direction: column;
       margin:auto;
+      @media (max-width: 400px) {
+        width: 90%;
+      }
+      @media (max-width: 768px) {
+        width: 99%;
+      }
       `;
       
 const start = 'https://api.themoviedb.org/3/search/movie?api_key=7f1a9ab21c04fc25c73f0115df15f92e&language=en-US&query='
@@ -50,7 +56,7 @@ export class Main extends Component {
     overview:'',
     date:'',
     poster:'',
-  
+
   }  
   
   handleChange = event => {
@@ -75,16 +81,15 @@ export class Main extends Component {
       if(e.keyCode == 13 && e.shiftKey == false) {
         e.preventDefault();
         this.handleSubmit();
-
-     
       }
-      console.log(...this.state.movies)
+    
     }
 
   render() {
       const isSubmited = this.state.isSubmited
       const Theme = this.state.theme
       const path ='https://image.tmdb.org/t/p/w500'
+      console.log(this.state.movies)
       const movies = Object
       .keys(this.state.movies)
       .map(key => 
@@ -93,21 +98,16 @@ export class Main extends Component {
         overview={this.state.movies[key].overview}
         date={this.state.movies[key].release_date}
         poster= {this.state.movies[key].poster_path}
+        id={String(this.state.movies[key].id)}
         />
         
         )
 
-    return (
-       
+    return ( 
+      
           <Layout>
-
              <Search  type ='search' onChange={this.handleChange} placeholder="Rechercher un film" onKeyDown={this.onEnterPress}></Search>
-
-
-             {isSubmited ? <Container>{movies}</Container>  : <Upcoming></Upcoming>}
-        
-        
-        
+             {isSubmited ? <Container>{movies}</Container>  : <Upcoming></Upcoming>}     
           </Layout>
           
     

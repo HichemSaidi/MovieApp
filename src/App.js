@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Main from './components/Main';
+import Details from './components/Details';
 import { ThemeProvider} from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles} from "./components/themes"
 import styled from 'styled-components';
+import { BrowserRouter , Route,} from "react-router-dom";
+
+
 
 
 export default function App() {
@@ -24,22 +28,24 @@ margin-right:10px;
 right:0;
 `;
 const Nav_Title= styled.p`
-      font-size:1.5em;  
-      margin-left:2em;
+      font-size:30px;  
       margin-top: auto;
-      margin-bottom: auto; 
       font-weight: 700;
   `;
 
   return (
+
     <ThemeProvider theme={ theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
        <Wrapper>
                      <Nav_Title>Movies</Nav_Title> 
-                     <Toggler onClick={()=> themeToggler()}> change theme</Toggler>
+                     <Toggler onClick={()=> themeToggler()}>Theme</Toggler>
        </Wrapper>
-
-      <Main></Main>
+    <BrowserRouter>
+      <Route exact path ="/" component = {Main} />
+      <Route path ="/:id" component = {Details}/>
+      
+      </BrowserRouter>
      
      
     </ThemeProvider>

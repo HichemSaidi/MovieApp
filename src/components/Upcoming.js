@@ -44,6 +44,7 @@ export class App extends Component {
         overview={this.state.top[key].overview}
         date={this.state.top[key].release_date}
         poster= {this.state.top[key].poster_path}
+        id={String(this.state.top[key].id)}
         />
         
         )
