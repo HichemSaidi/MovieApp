@@ -12,11 +12,12 @@ height:100%;
 
 const Content = styled.div`
   width: 19%;
-  @media (max-width: 400px) {
-    width: 49%;
-  }
+  
   @media (max-width: 768px) {
     width: 24%;
+  }
+  @media (max-width: 400px) {
+    width: 50%;
   }
 `;
 

@@ -5,10 +5,28 @@ import styled from 'styled-components';
 
 
 const SecDetails = styled.div`
-  display: flex;
-  margin:auto;
+margin:auto;
+  display: grid;
+  grid-template-columns: 1fr 200px ;
+column-gap: 10px;
+  
   margin-top:20px;
   width:50%;
+  min-width: 500px;
+
+  @media (max-width: 400px) {
+    width: 49%;
+    min-width: 100px;
+  }
+  @media (max-width: 768px) {
+    width: 95%;
+    display:flex;
+    --gap: 12px;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    
+  }
   
   `;
 
@@ -47,10 +65,12 @@ function Detail(props){
    
   return (
     <SecDetails>
+      
       <div>
-          <h1> {Title}</h1>
+          <h3> {Title}</h3>
           <p>{Overview}</p> 
       </div>
+     
       <SecDetailsPoster src={Poster} ></SecDetailsPoster>
        
    

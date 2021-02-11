@@ -9,6 +9,7 @@ import { BrowserRouter , Route,} from "react-router-dom";
 
 
 
+
 export default function App() {
  const [theme, setTheme ]= useState("light");
  const themeToggler = ()=>{
@@ -27,10 +28,11 @@ position: absolute;
 margin-right:10px;
 right:0;
 `;
-const Nav_Title= styled.p`
+const Nav_Title= styled.h1`
       font-size:30px;  
       margin-top: auto;
       font-weight: 700;
+      color: "#FFFFFF";
   `;
 
   return (
@@ -40,6 +42,7 @@ const Nav_Title= styled.p`
        <Wrapper>
                      <Nav_Title>Movies</Nav_Title> 
                      <Toggler onClick={()=> themeToggler()}>Theme</Toggler>
+                    
        </Wrapper>
     <BrowserRouter>
       <Route exact path ="/" component = {Main} />

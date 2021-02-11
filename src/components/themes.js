@@ -3,17 +3,19 @@ import {createGlobalStyle} from 'styled-components';
 
 export const lightTheme = {
     body:"#fff",
-    fontColor: "#FFFFFF",
-    WrapperColor:"#61a5fa",
+    fontColor: "#000000",
+    WrapperColor:"#60A5FA",
+    titleColor: "#FFFFFF",
 
     
 }
 
 export const darkTheme = {
-    body:"#4c5562",
+    body:"#4B5563",
     fontColor: "#FFFFFF",
-    WrapperColor:"#212936",
+    WrapperColor:"#1F2937",
     inputBorder: "none",
+    titleColor: "#FFFFFF",
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -25,5 +27,8 @@ body {
 }
 input{
     border:${(props) => props.theme. inputBorder};
+}
+h1{
+    color:${(props) => props.theme.titleColor}
 }
 `;
