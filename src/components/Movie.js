@@ -33,7 +33,7 @@ const poster_path =root.concat(boot)
                 <Content>
                   <Link to={id}>
                     <Image src={poster_path} onError={(e) => {
-     e.target.src = 'https://blankposter.com/wp-content/uploads/2019/09/mahe_soulier_error-1.gif' }} title={title} ></Image>
+     e.target.src = 'http://www.movienewz.com/img/films/poster-holder.jpg' }} title={title} ></Image>
          </Link>
                 </Content>
                 
